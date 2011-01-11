@@ -1,0 +1,13 @@
+--- origsrc/libtorrent-rasterbar-0.14.12/bindings/python/setup.py.in	2010-08-21 15:13:52.000000000 -0500
++++ src/libtorrent-rasterbar-0.14.12/bindings/python/setup.py.in	2011-01-11 00:59:26.552277400 -0600
+@@ -61,8 +61,8 @@ if "CFLAGS" in config_vars and "-Wstrict
+ if "OPT" in config_vars and "-Wstrict-prototypes" in config_vars["OPT"]:
+ 	config_vars["OPT"] = config_vars["OPT"].replace("-Wstrict-prototypes", " ")
+ 
+-source_list = os.listdir(os.path.join(os.path.dirname(__file__), "src"))
+-source_list = [os.path.join("src", s) for s in source_list if s.endswith(".cpp")]
++source_list = os.listdir("@srcdir@/src")
++source_list = [os.path.join("@srcdir@/src", s) for s in source_list if s.endswith(".cpp")]
+ 
+ extra_cmd = '@COMPILETIME_OPTIONS@ @CPPFLAGS@ @LIBS@ @BOOST_FILESYSTEM_LIB@ @BOOST_THREAD_LIB@ @PTHREAD_LIBS@ @SSL_LIBS@ @BOOST_SYSTEM_LIB@ @SSL_LDFLAGS@ @SSL_CXXFLAGS@'
+ 

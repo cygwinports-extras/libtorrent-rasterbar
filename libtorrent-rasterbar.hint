@@ -1,0 +1,5 @@
+category: Net
+sdesc: "C++ BitTorrent library (sources)"
+ldesc: "A C++ bittorrent library designed to run on anything from 
+embedded systems to large scale seed servers. It comes with python 
+bindings and detailed documentation."

@@ -1,0 +1,24 @@
+inherit python
+
+DESCRIPTION="C++ BitTorrent library"
+HOMEPAGE="http://code.google.com/p/libtorrent/"
+SRC_URI="http://libtorrent.googlecode.com/files/${P}.tar.gz"
+
+PATCH_URI="
+	0.14.12-cygwin.patch
+	0.14.12-no-undefined.patch
+	0.14.12-vpath.patch
+"
+
+PKG_NAMES="${PN}5 ${PN}-devel python-libtorrent"
+libtorrent_rasterbar5_CONTENTS="usr/bin/*-5.dll"
+libtorrent_rasterbar_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/"
+python_libtorrent_CONTENTS=${PYTHON_SITELIB#/}
+
+DIFF_EXCLUDES="setup.py *.pc"
+
+CYGCONF_ARGS="
+	--enable-python-binding
+	--with-asio=system
+	--with-boost-python=boost_python-mt
+"

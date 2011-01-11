@@ -1,0 +1,7 @@
+category: Net
+requires: libboost1.43 libgcc1 libopenssl098 libstdc++6 zlib0
+external-source: libtorrent-rasterbar
+sdesc: "C++ BitTorrent library (runtime)"
+ldesc: "A C++ bittorrent library designed to run on anything from 
+embedded systems to large scale seed servers. It comes with python 
+bindings and detailed documentation."
