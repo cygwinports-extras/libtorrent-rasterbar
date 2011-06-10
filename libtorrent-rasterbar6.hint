@@ -1,5 +1,5 @@
 category: Net
-requires: libboost1.43 libgcc1 libopenssl098 libstdc++6 zlib0
+requires: libboost1.46.1 libgcc1 libopenssl098 libstdc++6 zlib0
 external-source: libtorrent-rasterbar
 sdesc: "C++ BitTorrent library (runtime)"
 ldesc: "A C++ bittorrent library designed to run on anything from 

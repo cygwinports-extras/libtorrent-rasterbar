@@ -5,13 +5,13 @@ HOMEPAGE="http://code.google.com/p/libtorrent/"
 SRC_URI="http://libtorrent.googlecode.com/files/${P}.tar.gz"
 
 PATCH_URI="
-	0.14.12-cygwin.patch
-	0.14.12-no-undefined.patch
-	0.14.12-vpath.patch
+	0.15.6-cygwin.patch
+	0.15.6-no-undefined.patch
+	0.15.6-python-vpath.patch
 "
 
-PKG_NAMES="${PN}5 ${PN}-devel python-libtorrent"
-libtorrent_rasterbar5_CONTENTS="usr/bin/*-5.dll"
+PKG_NAMES="${PN}6 ${PN}-devel python-libtorrent"
+libtorrent_rasterbar6_CONTENTS="usr/bin/*-6.dll"
 libtorrent_rasterbar_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/"
 python_libtorrent_CONTENTS=${PYTHON_SITELIB#/}
 

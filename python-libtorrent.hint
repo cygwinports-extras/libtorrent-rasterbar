@@ -1,5 +1,5 @@
 category: Python
-requires: libboost1.43 libboost_python1.43 libgcc1 libopenssl098 libstdc++6 libtorrent-rasterbar5 python
+requires: libboost1.46.1 libboost_python1.46.1 libgcc1 libopenssl098 libstdc++6 libtorrent-rasterbar6 python
 external-source: libtorrent-rasterbar
 sdesc: "C++ BitTorrent library (Python bindings)"
 ldesc: "A C++ bittorrent library designed to run on anything from 
