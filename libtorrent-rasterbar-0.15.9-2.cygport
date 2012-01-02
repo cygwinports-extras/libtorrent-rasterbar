@@ -22,3 +22,5 @@ CYGCONF_ARGS="
 	--with-asio=system
 	--with-boost-python=boost_python-mt
 "
+
+KEEP_LA_FILES="none"
