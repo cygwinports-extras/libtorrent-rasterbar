@@ -18,8 +18,8 @@ python_libtorrent_CONTENTS=${PYTHON_SITELIB#/}
 DIFF_EXCLUDES="setup.py *.pc"
 
 CYGCONF_ARGS="
+	--disable-static
 	--enable-python-binding
-	--with-asio=system
 	--with-boost-python=boost_python-mt
 "
 
