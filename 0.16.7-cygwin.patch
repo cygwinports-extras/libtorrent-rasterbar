@@ -1,0 +1,102 @@
+--- origsrc/libtorrent-rasterbar-0.16.7/include/libtorrent/address.hpp	2012-03-26 21:03:11.000000000 -0500
++++ src/libtorrent-rasterbar-0.16.7/include/libtorrent/address.hpp	2013-01-21 19:15:53.844667800 -0600
+@@ -40,7 +40,7 @@ POSSIBILITY OF SUCH DAMAGE.
+ #define Protocol Protocol_
+ #endif
+ 
+-#if defined TORRENT_WINDOWS || defined TORRENT_CYGWIN
++#if defined TORRENT_WINDOWS
+ // asio assumes that the windows error codes are defined already
+ #include <winsock2.h>
+ #endif
+--- origsrc/libtorrent-rasterbar-0.16.7/include/libtorrent/config.hpp	2012-11-29 23:29:34.000000000 -0600
++++ src/libtorrent-rasterbar-0.16.7/include/libtorrent/config.hpp	2013-01-21 21:59:41.288402600 -0600
+@@ -33,6 +33,8 @@ POSSIBILITY OF SUCH DAMAGE.
+ #ifndef TORRENT_CONFIG_HPP_INCLUDED
+ #define TORRENT_CONFIG_HPP_INCLUDED
+ 
++#define __STDC_LIMIT_MACROS 1
++#define __STDC_FORMAT_MACROS 1
+ #include <boost/config.hpp>
+ #include <boost/version.hpp>
+ #include <stdio.h> // for snprintf
+@@ -200,6 +202,13 @@ POSSIBILITY OF SUCH DAMAGE.
+ #define TORRENT_USE_IFCONF 1
+ #define TORRENT_HAS_SALEN 0
+ 
++// ==== CYGWIN ===
++#elif defined __CYGWIN__
++#define TORRENT_CYGWIN
++#define TORRENT_USE_IFADDRS 1
++#define TORRENT_USE_IFCONF 1
++#define TORRENT_HAS_SALEN 0
++
+ // ==== MINGW ===
+ #elif defined __MINGW32__
+ #define TORRENT_MINGW
+--- origsrc/libtorrent-rasterbar-0.16.7/include/libtorrent/error.hpp	2012-03-26 21:03:11.000000000 -0500
++++ src/libtorrent-rasterbar-0.16.7/include/libtorrent/error.hpp	2013-01-21 19:16:02.213230400 -0600
+@@ -36,7 +36,7 @@ POSSIBILITY OF SUCH DAMAGE.
+ #include <boost/version.hpp>
+ #include "libtorrent/config.hpp"
+ 
+-#if defined TORRENT_WINDOWS || defined TORRENT_CYGWIN
++#if defined TORRENT_WINDOWS
+ // asio assumes that the windows error codes are defined already
+ #include <winsock2.h>
+ #endif
+--- origsrc/libtorrent-rasterbar-0.16.7/include/libtorrent/error_code.hpp	2012-09-30 11:57:43.000000000 -0500
++++ src/libtorrent-rasterbar-0.16.7/include/libtorrent/error_code.hpp	2013-01-21 19:16:07.093850200 -0600
+@@ -36,7 +36,7 @@ POSSIBILITY OF SUCH DAMAGE.
+ #include <boost/version.hpp>
+ #include "libtorrent/config.hpp"
+ 
+-#if defined TORRENT_WINDOWS || defined TORRENT_CYGWIN
++#if defined TORRENT_WINDOWS
+ // asio assumes that the windows error codes are defined already
+ #include <winsock2.h>
+ #endif
+--- origsrc/libtorrent-rasterbar-0.16.7/include/libtorrent/io_service.hpp	2012-03-26 21:03:11.000000000 -0500
++++ src/libtorrent-rasterbar-0.16.7/include/libtorrent/io_service.hpp	2013-01-21 19:16:11.678932400 -0600
+@@ -43,7 +43,7 @@ POSSIBILITY OF SUCH DAMAGE.
+ 
+ #include <boost/version.hpp>
+ 
+-#if defined TORRENT_WINDOWS || defined TORRENT_CYGWIN
++#if defined TORRENT_WINDOWS
+ // asio assumes that the windows error codes are defined already
+ #include <winsock2.h>
+ #endif
+--- origsrc/libtorrent-rasterbar-0.16.7/include/libtorrent/socket.hpp	2012-11-19 00:23:10.000000000 -0600
++++ src/libtorrent-rasterbar-0.16.7/include/libtorrent/socket.hpp	2013-01-21 19:16:16.104494400 -0600
+@@ -45,7 +45,7 @@ POSSIBILITY OF SUCH DAMAGE.
+ #define Protocol Protocol_
+ #endif
+ 
+-#if defined TORRENT_WINDOWS || defined TORRENT_CYGWIN
++#if defined TORRENT_WINDOWS
+ // asio assumes that the windows error codes are defined already
+ #include <winsock2.h>
+ #endif
+--- origsrc/libtorrent-rasterbar-0.16.7/include/libtorrent/thread.hpp	2012-03-26 21:03:11.000000000 -0500
++++ src/libtorrent-rasterbar-0.16.7/include/libtorrent/thread.hpp	2013-01-21 19:16:30.126275000 -0600
+@@ -35,7 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
+ 
+ #include "libtorrent/config.hpp"
+ 
+-#if defined TORRENT_WINDOWS || defined TORRENT_CYGWIN
++#if defined TORRENT_WINDOWS
+ // asio assumes that the windows error codes are defined already
+ #include <winsock2.h>
+ #endif
+--- origsrc/libtorrent-rasterbar-0.16.7/src/thread.cpp	2012-03-26 21:02:55.000000000 -0500
++++ src/libtorrent-rasterbar-0.16.7/src/thread.cpp	2013-01-21 19:16:36.651103500 -0600
+@@ -41,7 +41,7 @@ namespace libtorrent
+ {
+ 	void sleep(int milliseconds)
+ 	{
+-#if defined TORRENT_WINDOWS || defined TORRENT_CYGWIN
++#if defined TORRENT_WINDOWS
+ 		Sleep(milliseconds);
+ #elif defined TORRENT_BEOS
+ 		snooze_until(system_time() + boost::int64_t(milliseconds) * 1000, B_SYSTEM_TIMEBASE);

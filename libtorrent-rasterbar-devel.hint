@@ -1,7 +1,0 @@
-category: Net
-requires: libtorrent-rasterbar6 libboost-devel openssl-devel zlib-devel
-external-source: libtorrent-rasterbar
-sdesc: "C++ BitTorrent library (development)"
-ldesc: "A C++ bittorrent library designed to run on anything from 
-embedded systems to large scale seed servers. It comes with python 
-bindings and detailed documentation."

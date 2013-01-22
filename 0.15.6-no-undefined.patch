@@ -1,11 +1,5 @@
 --- origsrc/libtorrent-rasterbar-0.15.6/src/Makefile.am	2009-09-19 00:00:03.000000000 -0500
 +++ src/libtorrent-rasterbar-0.15.6/src/Makefile.am	2011-06-10 16:06:43.713026800 -0500
-@@ -78,7 +78,7 @@ libtorrent_rasterbar_la_SOURCES = \
-   $(GEOIP_SOURCES)
- 
- #libtorrent_rasterbar_la_LDFLAGS = $(LDFLAGS) -version-info $(INTERFACE_VERSION_INFO)
+@@ -81,1 +81,1 @@ libtorrent_rasterbar_la_SOURCES = \
 -libtorrent_rasterbar_la_LDFLAGS = -version-info $(INTERFACE_VERSION_INFO)
 +libtorrent_rasterbar_la_LDFLAGS = -version-info $(INTERFACE_VERSION_INFO) -no-undefined
- 
- #libtorrent_rasterbar_la_LIBADD = @ZLIB@ @BOOST_SYSTEM_LIB@ @BOOST_FILESYSTEM_LIB@ @BOOST_THREAD_LIB@ @OPENSSL_LIBS@
- libtorrent_rasterbar_la_LIBADD = @BOOST_SYSTEM_LIB@ @BOOST_FILESYSTEM_LIB@ @BOOST_THREAD_LIB@ @OPENSSL_LIBS@
