@@ -1,15 +1,15 @@
 inherit python
 
 NAME="libtorrent-rasterbar"
-VERSION=0.16.11
+VERSION=0.16.17
 RELEASE=1
 CATEGORY="Net"
 SUMMARY="C++ BitTorrent library"
 DESCRIPTION="A C++ bittorrent library designed to run on anything from embedded
 systems to large scale seed servers. It comes with python bindings and detailed
 documentation."
-HOMEPAGE="http://code.google.com/p/libtorrent/"
-SRC_URI="http://libtorrent.googlecode.com/files/${NAME}-${VERSION}.tar.gz"
+HOMEPAGE="http://www.libtorrent.org/"
+SRC_URI="mirror://sourceforge/libtorrent/${NAME}-${VERSION}.tar.gz"
 PATCH_URI="
 	0.16.7-cygwin.patch
 	0.15.6-no-undefined.patch
@@ -27,7 +27,6 @@ DIFF_EXCLUDES="setup.py *.pc"
 
 CYGCONF_ARGS="
 	--enable-python-binding
-	--with-boost-python=boost_python-mt
 	--with-libiconv
 "
 
