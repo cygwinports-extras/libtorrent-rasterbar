@@ -1,7 +1,0 @@
---- origsrc/libtorrent-rasterbar-0.15.6/bindings/python/setup.py.in	2010-08-21 16:30:19.000000000 -0500
-+++ src/libtorrent-rasterbar-0.15.6/bindings/python/setup.py.in	2011-06-10 16:06:10.166968500 -0500
-@@ -64,2 +64,2 @@ if "CFLAGS" in config_vars and "-Wstrict
--source_list = os.listdir(os.path.join(os.path.dirname(__file__), "src"))
--source_list = [os.path.join("src", s) for s in source_list if s.endswith(".cpp")]
-+source_list = os.listdir("@srcdir@/src")
-+source_list = [os.path.join("@srcdir@/src", s) for s in source_list if s.endswith(".cpp")]

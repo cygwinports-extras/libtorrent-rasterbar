@@ -1,7 +1,7 @@
 inherit python
 
 NAME="libtorrent-rasterbar"
-VERSION=0.16.17
+VERSION=1.0.4
 RELEASE=1
 CATEGORY="Net"
 SUMMARY="C++ BitTorrent library"
@@ -13,17 +13,17 @@ SRC_URI="mirror://sourceforge/libtorrent/${NAME}-${VERSION}.tar.gz"
 PATCH_URI="
 	0.16.7-cygwin.patch
 	0.15.6-no-undefined.patch
-	0.15.6-python-vpath.patch
+	1.0.4-python-vpath.patch
 "
 
-PKG_NAMES="${NAME}7 ${NAME}-devel python-libtorrent"
-libtorrent_rasterbar7_CONTENTS="usr/bin/cygtorrent-rasterbar-7.dll"
+PKG_NAMES="${NAME}8 ${NAME}-devel python-libtorrent"
+libtorrent_rasterbar8_CONTENTS="usr/bin/cygtorrent-rasterbar-8.dll"
 libtorrent_rasterbar_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/"
 python_libtorrent_CATEGORY="Python"
 python_libtorrent_SUMMARY="${SUMMARY} (Python bindings)"
 python_libtorrent_CONTENTS=${PYTHON_SITELIB#/}
 
-DIFF_EXCLUDES="setup.py *.pc"
+DIFF_EXCLUDES="*.pc"
 
 CYGCONF_ARGS="
 	--enable-python-binding

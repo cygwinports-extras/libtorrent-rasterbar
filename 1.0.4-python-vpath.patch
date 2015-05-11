@@ -1,0 +1,35 @@
+--- origsrc/libtorrent-rasterbar-1.0.4/bindings/python/Makefile.am	2014-11-27 14:23:52.000000000 -0600
++++ src/libtorrent-rasterbar-1.0.4/bindings/python/Makefile.am	2015-05-11 16:30:11.806756600 -0500
+@@ -33,15 +33,15 @@ EXTRA_DIST = \
+ if ENABLE_PYTHON_BINDING
+ 
+ all-local:
+-	$(PYTHON) setup.py build
++	$(PYTHON) $(srcdir)/setup.py build -b .
+ 
+ install-exec-local:
+-	$(PYTHON) setup.py install @PYTHON_INSTALL_PARAMS@
++	$(PYTHON) $(srcdir)/setup.py build -b . install @PYTHON_INSTALL_PARAMS@
+ 
+ uninstall-local:
+ 	rm -rf $(DESTDIR)$(libdir)/python*/*-packages/*libtorrent*
+ 
+ clean-local:
+-	$(PYTHON) setup.py clean --all
++	$(PYTHON) $(srcdir)/setup.py build -b . clean --all
+ 
+ endif
+--- origsrc/libtorrent-rasterbar-1.0.4/bindings/python/setup.py	2015-03-21 07:47:27.000000000 -0500
++++ src/libtorrent-rasterbar-1.0.4/bindings/python/setup.py	2015-05-11 16:32:27.218451700 -0500
+@@ -91,8 +91,9 @@ if '--bjam' in sys.argv or ldflags == No
+ 
+ else:
+ 
+-	source_list = os.listdir(os.path.join(os.path.dirname(__file__), "src"))
+-	source_list = [os.path.join("src", s) for s in source_list if s.endswith(".cpp")]
++	source_dir = os.path.dirname(os.path.realpath(__file__))
++	source_list = os.listdir(os.path.join(source_dir, "src"))
++	source_list = [os.path.join(source_dir, "src", s) for s in source_list if s.endswith(".cpp")]
+ 
+ 	ext = [Extension('libtorrent',
+ 		sources = source_list,
